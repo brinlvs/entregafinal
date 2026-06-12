@@ -1,0 +1,147 @@
+// NAVBAR SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// MOBILE MENU
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.querySelector('.nav-links');
+navToggle?.addEventListener('click', () => {
+  const open = navLinks.style.display === 'flex';
+  navLinks.style.display = open ? 'none' : 'flex';
+  navLinks.style.flexDirection = 'column';
+  navLinks.style.position = 'absolute';
+  navLinks.style.top = '100%';
+  navLinks.style.right = '2rem';
+  navLinks.style.background = 'var(--dark2)';
+  navLinks.style.border = '1px solid var(--border)';
+  navLinks.style.borderRadius = 'var(--radius)';
+  navLinks.style.padding = '1rem 1.5rem';
+  navLinks.style.gap = '1rem';
+});
+
+// PROJETOS
+const projetos = [
+  {
+    icon: '🌐', nome: 'PortfolioHUB',
+    desc: 'Plataforma centralizada para exibir e gerenciar projetos e portfólios digitais. Integração com GitHub e Google GEMINI.',
+    techs: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+    github: 'https://github.com/seu-usuario/portfoliohub', demo: '#'
+  },
+  {
+    icon: '🤖', nome: 'GEMINI Chat App',
+    desc: 'Aplicação de chat integrada com a API do Google GEMINI para geração de respostas inteligentes em tempo real.',
+    techs: ['JavaScript', 'API REST', 'Google AI'],
+    github: 'https://github.com/seu-usuario/gemini-chat', demo: '#'
+  },
+  {
+    icon: '🔒', nome: 'Gestão de Segurança',
+    desc: 'Sistema de controle de acessos e gestão de usuários com políticas de segurança baseadas em melhores práticas.',
+    techs: ['GitHub', '2FA', 'Branch Protection'],
+    github: 'https://github.com/seu-usuario/security-manager', demo: '#'
+  },
+  {
+    icon: '📊', nome: 'Dashboard Analytics',
+    desc: 'Painel de visualização de dados com gráficos interativos para monitoramento de métricas de projetos.',
+    techs: ['HTML', 'CSS', 'Chart.js'],
+    github: 'https://github.com/seu-usuario/dashboard', demo: '#'
+  },
+  {
+    icon: '⚙️', nome: 'CI/CD Pipeline',
+    desc: 'Configuração completa de pipeline de integração e entrega contínua usando GitHub Actions.',
+    techs: ['GitHub Actions', 'YAML', 'DevOps'],
+    github: 'https://github.com/seu-usuario/cicd-pipeline', demo: '#'
+  },
+  {
+    icon: '📱', nome: 'Landing Page Responsiva',
+    desc: 'Página de destino moderna e responsiva com animações CSS e design focado em conversão.',
+    techs: ['HTML5', 'CSS3', 'Animations'],
+    github: 'https://github.com/seu-usuario/landing-page', demo: '#'
+  }
+];
+
+function renderProjetos() {
+  const grid = document.getElementById('projetosGrid');
+  if (!grid) return;
+  grid.innerHTML = projetos.map(p => `
+    <div class="projeto-card">
+      <div class="projeto-header">
+        <span class="projeto-icon">${p.icon}</span>
+        <div class="projeto-links">
+          <a href="${p.github}" target="_blank">GitHub</a>
+          <a href="${p.demo}" target="_blank">Demo</a>
+        </div>
+      </div>
+      <div class="projeto-nome">${p.nome}</div>
+      <div class="projeto-desc">${p.desc}</div>
+      <div class="projeto-techs">
+        ${p.techs.map(t => `<span class="tech-badge">${t}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+renderProjetos();
+
+// SKILL BARS
+function animateSkills() {
+  document.querySelectorAll('.skill-fill').forEach(fill => {
+    fill.style.width = fill.dataset.width + '%';
+  });
+}
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { animateSkills(); skillObserver.unobserve(entry.target); }
+  });
+}, { threshold: 0.3 });
+const skillsSection = document.getElementById('habilidades');
+if (skillsSection) skillObserver.observe(skillsSection);
+
+// SCROLL REVEAL
+document.querySelectorAll('.projeto-card, .skills-category, .contato-item, .stat').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+});
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }, i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.projeto-card, .skills-category, .contato-item, .stat')
+  .forEach(el => revealObserver.observe(el));
+
+// FORM
+document.getElementById('contatoForm')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  showToast('✅ Mensagem enviada! Responderei em breve.');
+  e.target.reset();
+});
+
+// TOAST
+function showToast(msg) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.add('show')));
+  setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 4000);
+}
+
+// ACTIVE NAV
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--pink)' : '';
+  });
+});
