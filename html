@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PortfolioHUB</title>
+  <link rel="stylesheet" href="src/styles/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">Portfolio<span>HUB</span></a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a href="https://github.com/seu-usuario/portfoliohub" target="_blank" class="btn-github">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-tag">✦ Bem-vindo ao meu universo digital</span>
+      <h1 class="hero-title">
+        Olá, eu sou<br>
+        <span class="highlight" id="nomeUsuario">Seu Nome</span>
+      </h1>
+      <p class="hero-sub">Desenvolvedor · Designer · Criador de soluções digitais</p>
+      <div class="hero-btns">
+        <a href="#projetos" class="btn-primary">Ver Projetos</a>
+        <a href="#contato" class="btn-outline">Entre em Contato</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="code-card">
+        <div class="code-dots"><span></span><span></span><span></span></div>
+        <pre><code><span class="c-pink">const</span> dev = {
+  nome: <span class="c-green">"Seu Nome"</span>,
+  stack: [<span class="c-green">"HTML"</span>, <span class="c-green">"CSS"</span>, <span class="c-green">"JS"</span>],
+  paixao: <span class="c-green">"criar coisas incríveis"</span>,
+  status: <span class="c-yellow">() =></span> <span class="c-green">"disponível 🚀"</span>
+};</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quem sou eu</span>
+        <h2 class="section-title">Sobre Mim</h2>
+      </div>
+      <div class="sobre-grid">
+        <div class="sobre-avatar">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="30" r="18" fill="#C2185B" opacity="0.8"/>
+                <ellipse cx="40" cy="65" rx="28" ry="16" fill="#C2185B" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Projetos</span></div>
+            <div class="stat"><span class="stat-num">2+</span><span class="stat-label">Anos</span></div>
+            <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Tecnologias</span></div>
+          </div>
+        </div>
+        <div class="sobre-texto">
+          <p>Sou um desenvolvedor apaixonado por tecnologia e inovação. Tenho experiência no desenvolvimento de soluções digitais completas, desde o planejamento até a entrega final.</p>
+          <p>Utilizo as melhores práticas de desenvolvimento, versionamento com Git e GitHub, e integração com ferramentas de IA como o Google GEMINI para otimizar meus projetos.</p>
+          <div class="sobre-tags">
+            <span class="tag">Problem Solver</span>
+            <span class="tag">Git & GitHub</span>
+            <span class="tag">Google Workspace</span>
+            <span class="tag">IA / GEMINI</span>
+            <span class="tag">Trabalho em Equipe</span>
+          </div>
+          <a href="#contato" class="btn-primary" style="margin-top:1.5rem;display:inline-block;">Fale Comigo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="section section-alt" id="projetos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">O que construí</span>
+        <h2 class="section-title">Meus Projetos</h2>
+      </div>
+      <div class="projetos-grid" id="projetosGrid"></div>
+      <div class="projetos-cta">
+        <a href="https://github.com/seu-usuario" target="_blank" class="btn-outline">
+          Ver todos no GitHub →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="section" id="habilidades">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Meu arsenal</span>
+        <h2 class="section-title">Habilidades</h2>
+      </div>
+      <div class="skills-container">
+        <div class="skills-category">
+          <h3>Frontend</h3>
+          <div class="skills-list">
+            <div class="skill-item"><span class="skill-icon">🌐</span>HTML5<div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+            <div class="skill-item"><span class="skill-icon">🎨</span>CSS3<div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
+            <div class="skill-item"><span class="skill-icon">⚡</span>JavaScript<div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>Ferramentas</h3>
+          <div class="skills-list">
+            <div class="skill-item"><span class="skill-icon">🐙</span>Git & GitHub<div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
+            <div class="skill-item"><span class="skill-icon">✨</span>Google GEMINI<div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
+            <div class="skill-item"><span class="skill-icon">☁️</span>Cloud<div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></div>
+          </div>
+        </div>
+        <div class="skills-category">
+          <h3>Soft Skills</h3>
+          <div class="skills-badges">
+            <span class="badge">Comunicação</span>
+            <span class="badge">Liderança</span>
+            <span class="badge">Criatividade</span>
+            <span class="badge">Metodologias Ágeis</span>
+            <span class="badge">Resolução de Problemas</span>
+            <span class="badge">Aprendizado Contínuo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section section-alt" id="contato">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Vamos conversar</span>
+        <h2 class="section-title">Contato</h2>
+      </div>
+      <div class="contato-grid">
+        <div class="contato-info">
+          <p>Estou disponível para projetos, colaborações e oportunidades. Entre em contato!</p>
+          <div class="contato-links">
+            <a href="mailto:seu@email.com" class="contato-item">
+              <span class="contato-icon">📧</span>
+              <div><strong>Email</strong><br>seu@email.com</div>
+            </a>
+            <a href="https://github.com/seu-usuario" target="_blank" class="contato-item">
+              <span class="contato-icon">🐙</span>
+              <div><strong>GitHub</strong><br>@seu-usuario</div>
+            </a>
+            <a href="https://linkedin.com/in/seu-usuario" target="_blank" class="contato-item">
+              <span class="contato-icon">💼</span>
+              <div><strong>LinkedIn</strong><br>/in/seu-usuario</div>
+            </a>
+          </div>
+        </div>
+        <form class="contato-form" id="contatoForm">
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="seu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Mensagem</label>
+            <textarea rows="4" placeholder="Fale sobre seu projeto ou ideia..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%">Enviar Mensagem ✉️</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <span class="nav-logo">Portfolio<span>HUB</span></span>
+        <p>Feito com ❤️ e muito código</p>
+        <p class="footer-copy">© 2026 PortfolioHUB · Implantado com GitHub + Google GEMINI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/scripts/main.js"></script>
+</body>
+</html>
